@@ -1,0 +1,20 @@
+config:
+  target: http://127.0.0.1:5000
+  phases:
+    - duration: 1
+      arrivalRate: 1
+      #rampTo: 30
+      #maxVusers: 200
+      name: 'ArtilleryTest'
+  payload:
+    path: '/Users/KAKAO/PycharmProject/ArtilleryTest/venv/users.csv'
+    fields:
+      - 'username'
+      - 'password'
+
+scenarios:
+  - flow:
+      - loop:
+          - get:
+              url: '/'
+        count: 5

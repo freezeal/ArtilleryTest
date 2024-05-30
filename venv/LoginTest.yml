@@ -1,0 +1,31 @@
+config:
+  target: http://127.0.0.1:5000
+  phases:
+    - duration: 5
+      arrivalRate: 1
+      #rampTo: 30
+      #maxVusers: 200
+      name: 'ArtilleryTest'
+  payload:
+    path: '/Users/KAKAO/PycharmProject/ArtilleryTest/venv/users.csv'
+    fields:
+      - 'username'
+      - 'password'
+
+scenarios:
+  - name: "Login Scenarios"
+    flow:
+      - get:
+          url: '/'
+      - post:
+          url: '/login_api'
+          json:
+            username: '{{ username }}'
+            password: '{{ password }}'
+      - get:
+          url: '/home'
+
+  - name: 'logout Scenarios'
+    flow:
+      - post:
+          url: '/logout_api'

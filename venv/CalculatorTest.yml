@@ -1,0 +1,43 @@
+config:
+  target: http://127.0.0.1:5000
+  phases:
+    - duration: 5
+      arrivalRate: 1
+      #rampTo: 30
+      #maxVusers: 200
+      name: "ArtilleryTest"
+  http:
+    defaults:
+      cookie:
+        session: "eyJ1c2VybmFtZSI6ImFkbWluIn0.ZlZzJQ.EKu2xpfhl0fhVZG6o4kKYmaGvtY"
+  payload:
+    path: '/Users/KAKAO/PycharmProject/ArtilleryTest/venv/cal.csv'
+    fields:
+      - 'num1'
+      - 'num2'
+
+scenarios:
+  - flow:
+      - post:
+          url: '/calculator_api/add'
+          json:
+            num1: '{{ num1 }}'
+            num2: '{{ num2 }}'
+  - flow:
+      - post:
+          url: '/calculator_api/subtract'
+          json:
+            num1: '{{ num1 }}'
+            num2: '{{ num2 }}'
+  - flow:
+      - post:
+          url: '/calculator_api/multiply'
+          json:
+            num1: '{{ num1 }}'
+            num2: '{{ num2 }}'
+  - flow:
+      - post:
+          url: '/calculator_api/divide'
+          json:
+            num1: '{{ num1 }}'
+            num2: '{{ num2 }}'

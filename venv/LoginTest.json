@@ -1,0 +1,35 @@
+{
+    "config": {
+        "target": "http://127.0.0.1:5000",
+        "phases": [
+            {
+                "duration": 10,
+                "arrivalRate": 10,
+                "name": "Artillery Test"
+            }
+        ]
+    },
+    "scenarios": [
+      "flow": [
+        {
+          "get": {
+            "url": "/"
+          }
+        },
+        {
+          "post": {
+            "url": "/login_api",
+            "json": {
+              "username": "admin",
+              "password": "1234"
+            }
+          }
+        },
+        {
+          "get": {
+            "url": "/home"
+          }
+        }
+      ]
+    ]
+}
