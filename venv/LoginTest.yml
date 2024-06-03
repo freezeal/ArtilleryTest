@@ -2,15 +2,16 @@
 config:
   target: http://127.0.0.1:5000
   phases:
-    - duration: 30
-      arrivalRate: 30
-      rampTo: 108
-      maxVusers: 216
-  payload:
-    path: '/Users/KAKAO/PycharmProject/ArtilleryTest/venv/users.csv'
-    fields:
-      - 'username'
-      - 'password'
+    - duration: 120
+      arrivalRate: 1
+      #rampTo: 1
+      maxVusers: 1
+
+#  payload:
+#    path: '/Users/KAKAO/PycharmProject/ArtilleryTest/venv/users.csv'
+#    fields:
+#      - 'username'
+#      - 'password'
 
 #로그인 시나리오
 scenarios:

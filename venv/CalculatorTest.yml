@@ -1,43 +1,61 @@
+#계산하기 시나리오 config 섹션(최소 부하)
 config:
   target: http://127.0.0.1:5000
   phases:
-    - duration: 5
-      arrivalRate: 1
-      #rampTo: 30
-      #maxVusers: 200
-      name: "ArtilleryTest"
+    - duration: 120
+      arrivalRate: 30
+      rampTo: 108
+      maxVusers: 216
+
   http:
     defaults:
       cookie:
         session: "eyJ1c2VybmFtZSI6ImFkbWluIn0.ZlZzJQ.EKu2xpfhl0fhVZG6o4kKYmaGvtY"
+
   payload:
     path: '/Users/KAKAO/PycharmProject/ArtilleryTest/venv/cal.csv'
     fields:
       - 'num1'
       - 'num2'
 
+#사칙연산 계산하기 호출
 scenarios:
-  - flow:
+  - name: '더하기 계산하기'
+    flow:
       - post:
           url: '/calculator_api/add'
           json:
             num1: '{{ num1 }}'
             num2: '{{ num2 }}'
-  - flow:
+
+  - name: '빼기 계산하기'
+    flow:
       - post:
           url: '/calculator_api/subtract'
           json:
             num1: '{{ num1 }}'
             num2: '{{ num2 }}'
-  - flow:
+
+  - name: '곱하기 계산하기'
+    flow:
       - post:
           url: '/calculator_api/multiply'
           json:
             num1: '{{ num1 }}'
             num2: '{{ num2 }}'
-  - flow:
+
+  - name: '나누기 계산하기'
+    flow:
       - post:
           url: '/calculator_api/divide'
           json:
             num1: '{{ num1 }}'
             num2: '{{ num2 }}'
+
+  #히스토리 보기
+  - name: 'history Scenarios'
+    flow:
+      - get:
+          url: '/history_view'
+      - get:
+          url: '/history_api'
