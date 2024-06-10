@@ -9,5 +9,6 @@ Artillery를 이용한 부하테스트
 - Report 전환 : artilley report {리포트 이름}.json -o {리포트 이름}.hmtl
 ----------------------------------
 - 로컬 결과
-  ![](./images/local.png)
+  ![로컬 결과](./venv/images/local.png)
 - 대시보드 결과
+  ![대시보드 결과](./venv/images/Dashboard.png)
