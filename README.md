@@ -7,3 +7,5 @@ Artillery를 이용한 부하테스트
 - 대시보드 실행 : artillery run {실행 파일명}.yml --record --key {Artillery API Key}
 - 로컬 실행 : artillery run -o {리포트 이름}.json {실행 파일명}.yml
 - Report 전환 : artilley report {리포트 이름}.json -o {리포트 이름}.hmtl
+----------------------------------
+- 로컬 결과
